@@ -323,66 +323,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: verticalAngularTiltSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: verticalMaxTilt
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: verticalTiltSelfCorrectionSpeed
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: glidingSpeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: bounceForce
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 54281898225190740, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: turnSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: horizontalSpeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: turnAcceleration
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: horizontalBankAcceleration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: maxTurnSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
-        type: 2}
-      propertyPath: maxHorizontalSpeed
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab87cd3e646a43045b0891523086108c, type: 2}
   m_IsPrefabParent: 0

@@ -7,6 +7,8 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float glidingSpeed;
     [SerializeField]
+    float gravityMultiplier;
+    [SerializeField]
     float turnAcceleration;
     [SerializeField]
     float maxTurnSpeed;
@@ -29,6 +31,8 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float verticalTiltSelfCorrectionSpeed; // Value between 0 and 1, determines how fast the character tilts back to rotation 0 when there is no airborne vertical input
 
+    [SerializeField]
+    float wingFlapBoost;
     [SerializeField]
     float bounceForce;
 
@@ -62,7 +66,7 @@ public class BirdCharacterController : MonoBehaviour
     {
         // Move character along forward vector
         Vector3 forwardVelocityVector = transform.forward * glidingSpeed;
-        rb.velocity = new Vector3(forwardVelocityVector.x, lastVerticalSpeed + (Physics.gravity.y * Time.deltaTime), forwardVelocityVector.z);
+        rb.velocity = new Vector3(forwardVelocityVector.x, lastVerticalSpeed + (Physics.gravity.y * Time.deltaTime * gravityMultiplier), forwardVelocityVector.z);
         lastVerticalSpeed = rb.velocity.y;
 
         Turn();
@@ -170,5 +174,10 @@ public class BirdCharacterController : MonoBehaviour
             Debug.Log("Bouncing at " + transform.position);
             lastVerticalSpeed = bounceForce;
         }
+    }
+
+    public void BoostUp()
+    {
+        lastVerticalSpeed += wingFlapBoost;
     }
 }
