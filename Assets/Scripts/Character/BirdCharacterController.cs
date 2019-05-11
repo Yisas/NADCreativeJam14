@@ -38,6 +38,8 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float bounceForce;
 
+    public Animator anim;
+
     // Input variables
     float horizontalInput = 0;
     float verticalInput = 0;
@@ -65,6 +67,7 @@ public class BirdCharacterController : MonoBehaviour
         InputCollection();
         VecticalTilt();
         HorizontalTilt();
+        UpdateAnimator();
 
         diving = verticalInput > 0;
     }
@@ -201,5 +204,11 @@ public class BirdCharacterController : MonoBehaviour
     {
         if(!diving)
             bounceSpeed += wingFlapBoost;
+    }
+
+    void UpdateAnimator()
+    {
+        anim.SetBool("diving", diving);
+        anim.SetBool("gliding", Mathf.Abs(horizontalInput) > 0.2f);
     }
 }
