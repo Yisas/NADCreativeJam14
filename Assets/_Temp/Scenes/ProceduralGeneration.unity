@@ -135,8 +135,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5fd0d970aa683468e8263d91cb2f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunk: {fileID: 1911487533240420, guid: 09cf7927e4479b2479d41422b71ec5b7, type: 2}
-  generationRadius: 50
+  generationRadius: 500
+  chunk: {fileID: 1355105892577324, guid: 09cf7927e4479b2479d41422b71ec5b7, type: 2}
+  environment:
+  - type: Tree
+    variants:
+    - {fileID: 1867408324232786, guid: b9b8d855e3ae7aa4882629fc9aa67b5d, type: 2}
+    - {fileID: 1867408324232786, guid: ea4c070860500cc418c84cdafc44fc0f, type: 2}
+    spawnChance: 0.75
+    minAmount: 1
+    maxAmount: 1
+    minSize: 5
+    maxSize: 10
+    minHeight: 0
+    maxHeight: 0
 --- !u!4 &1247640499
 Transform:
   m_ObjectHideFlags: 0
@@ -227,7 +239,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1432317185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -244,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3fa2391226a774c8728c1d9342dcb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
 --- !u!1 &1825820276
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,13 +340,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825820276}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 5, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!114 &1825820282
 MonoBehaviour:
   m_ObjectHideFlags: 0
