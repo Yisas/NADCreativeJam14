@@ -323,6 +323,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
+        type: 2}
+      propertyPath: verticalAngularTiltSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
+        type: 2}
+      propertyPath: verticalMaxTilt
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
+        type: 2}
+      propertyPath: verticalTiltSelfCorrectionSpeed
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
+        type: 2}
+      propertyPath: glidingSpeed
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab87cd3e646a43045b0891523086108c, type: 2}
   m_IsPrefabParent: 0
