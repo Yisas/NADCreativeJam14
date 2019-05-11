@@ -366,11 +366,21 @@ Prefab:
     - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
         type: 2}
       propertyPath: turnAcceleration
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
         type: 2}
       propertyPath: horizontalBankAcceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
+        type: 2}
+      propertyPath: maxTurnSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
+        type: 2}
+      propertyPath: maxHorizontalSpeed
       value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []

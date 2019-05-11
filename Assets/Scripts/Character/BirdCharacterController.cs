@@ -8,9 +8,13 @@ public class BirdCharacterController : MonoBehaviour
     float glidingSpeed;
     [SerializeField]
     float turnAcceleration;
+    [SerializeField]
+    float maxTurnSpeed;
 
     [SerializeField]
     float horizontalBankAcceleration;
+    [SerializeField]
+    float maxHorizontalSpeed;
     [SerializeField]
     float horizontalAngularTiltSpeed;
     [SerializeField]
@@ -70,7 +74,7 @@ public class BirdCharacterController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         // If signchange or increment from 0, relative to last horizontal input, turning started
-        if(Mathf.Sign(horizontalInput) != Mathf.Sign(previousHorizontalInput) || (previousHorizontalInput == 0 && Mathf.Abs(horizontalInput) > 0))
+        if (Mathf.Sign(horizontalInput) != Mathf.Sign(previousHorizontalInput) || (previousHorizontalInput == 0 && Mathf.Abs(horizontalInput) > 0))
         {
             turnStartTime = Time.time;
         }
@@ -132,18 +136,36 @@ public class BirdCharacterController : MonoBehaviour
 
     void Turn()
     {
-        if(Mathf.Abs(horizontalInput) > 0)
+        if (Mathf.Abs(horizontalInput) > 0)
         {
-            transform.RotateAround(transform.position, Vector3.up, horizontalInput * turnAcceleration * (Time.time - turnStartTime));
-            
+            float turnAngleAmount = 0;
+            if (Mathf.Abs(horizontalInput * turnAcceleration * (Time.time - turnStartTime)) < maxTurnSpeed)
+            {
+                turnAngleAmount = horizontalInput * turnAcceleration * (Time.time - turnStartTime);
+            }
+            else
+            {
+                turnAngleAmount = maxTurnSpeed * Mathf.Sign(horizontalInput);
+            }
+            transform.RotateAround(transform.position, Vector3.up, turnAngleAmount);
+
             // Add horizontal banking acceleration
-            rb.velocity = rb.velocity + (transform.right * horizontalBankAcceleration * horizontalInput * (Time.time - turnStartTime));
+            float horizontalBankAmount = 0;
+            if (Mathf.Abs(horizontalInput * horizontalBankAcceleration * (Time.time - turnStartTime)) < maxHorizontalSpeed)
+            {
+                horizontalBankAmount = horizontalInput * horizontalBankAcceleration * (Time.time - turnStartTime);
+            }
+            else
+            {
+                horizontalBankAmount = maxHorizontalSpeed * Mathf.Sign(horizontalInput);
+            }
+            rb.velocity = rb.velocity + (transform.right * maxHorizontalSpeed);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Debug.Log("Bouncing at " + transform.position);
             lastVerticalSpeed = bounceForce;
