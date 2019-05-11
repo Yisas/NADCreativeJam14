@@ -38,6 +38,13 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float bounceForce;
 
+    [SerializeField]
+    float cloudYLevel;
+    [SerializeField]
+    AudioClip cloudEnterSound;
+    [SerializeField]
+    AudioClip wingFlapSound;
+
     public Animator anim;
 
     // Input variables
@@ -49,15 +56,17 @@ public class BirdCharacterController : MonoBehaviour
     float tiltSelfcorrectionT = 0;       // t for the lerp back to 0 rotation, when there is no horizontal input
     float bounceSpeed = 0;
     float turnStartTime = 0;
+    float lastVerticalPosition = 0;
     Vector3 originalPosition;
 
+    AudioSource audioSource;
     Rigidbody rb;
-
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         originalPosition = transform.position;
     }
 
@@ -70,6 +79,12 @@ public class BirdCharacterController : MonoBehaviour
         UpdateAnimator();
 
         diving = verticalInput > 0;
+
+        if (transform.position.y < cloudYLevel && lastVerticalPosition >= cloudYLevel)
+        {
+            audioSource.PlayOneShot(cloudEnterSound);
+        }
+        lastVerticalPosition = transform.position.y;
     }
 
     private void FixedUpdate()
@@ -202,8 +217,11 @@ public class BirdCharacterController : MonoBehaviour
 
     public void BoostUp()
     {
-        if(!diving)
+        if (!diving)
+        {
             bounceSpeed += wingFlapBoost;
+            audioSource.PlayOneShot(wingFlapSound);
+        }
     }
 
     void UpdateAnimator()

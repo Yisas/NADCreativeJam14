@@ -649,6 +649,7 @@ GameObject:
   - component: {fileID: 54980171384594108}
   - component: {fileID: 65623263339809100}
   - component: {fileID: 114400982348127308}
+  - component: {fileID: 82083179205831970}
   m_Layer: 0
   m_Name: Bird Player
   m_TagString: Player
@@ -1314,6 +1315,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1180393814524240}
   m_Enabled: 1
+--- !u!82 &82083179205831970
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967745865114138}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &92133904414529352
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1389,6 +1470,9 @@ MonoBehaviour:
   verticalTiltSelfCorrectionSpeed: 0.005
   wingFlapBoost: 0
   bounceForce: 500
+  cloudYLevel: 15
+  cloudEnterSound: {fileID: 8300000, guid: 2fa413b1d30d0484e971db7830a0f330, type: 3}
+  wingFlapSound: {fileID: 8300000, guid: 5ba2ab618ca6a25418722d23f6679aea, type: 3}
   anim: {fileID: 95127985757820356}
 --- !u!124 &124137960565125486
 Behaviour:
