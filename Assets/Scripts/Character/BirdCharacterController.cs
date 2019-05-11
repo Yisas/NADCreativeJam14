@@ -173,7 +173,7 @@ public class BirdCharacterController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bouncy"))
         {
             Debug.Log("Bouncing at " + transform.position);
             bounceSpeed = bounceForce;
