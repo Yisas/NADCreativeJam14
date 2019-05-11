@@ -1933,7 +1933,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!65 &65536058970920564
 BoxCollider:
@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glidingSpeed: 50
-  gravityMultiplier: 1.5
+  gravityMultiplier: 50
   turnAcceleration: 0.8
   maxTurnSpeed: 1
   horizontalBankAcceleration: 1
@@ -2001,8 +2001,8 @@ MonoBehaviour:
   verticalAngularTiltSpeed: 1
   verticalMaxTilt: 20
   verticalTiltSelfCorrectionSpeed: 0.005
-  wingFlapBoost: 10
-  bounceForce: 60
+  wingFlapBoost: 40
+  bounceForce: 5000
 --- !u!124 &124511892946389784
 Behaviour:
   m_ObjectHideFlags: 1

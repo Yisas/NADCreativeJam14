@@ -42,7 +42,7 @@ public class BirdCharacterController : MonoBehaviour
 
     // Movement variables
     float tiltSelfcorrectionT = 0;       // t for the lerp back to 0 rotation, when there is no horizontal input
-    float lastVerticalSpeed = 0;
+    float bounceSpeed = 0;
     float turnStartTime = 0;
 
     Rigidbody rb;
@@ -66,8 +66,12 @@ public class BirdCharacterController : MonoBehaviour
     {
         // Move character along forward vector
         Vector3 forwardVelocityVector = transform.forward * glidingSpeed;
-        rb.velocity = new Vector3(forwardVelocityVector.x, lastVerticalSpeed + (Physics.gravity.y * Time.deltaTime * gravityMultiplier), forwardVelocityVector.z);
-        lastVerticalSpeed = rb.velocity.y;
+        rb.velocity = new Vector3(forwardVelocityVector.x, forwardVelocityVector.y + bounceSpeed + (Physics.gravity.y * Time.deltaTime * gravityMultiplier), forwardVelocityVector.z);
+
+        // Apply gravity to bounce speed till it fades
+        bounceSpeed += (Physics.gravity.y * Time.deltaTime * gravityMultiplier);
+        if (bounceSpeed < 0)
+            bounceSpeed = 0;
 
         Turn();
     }
@@ -172,12 +176,12 @@ public class BirdCharacterController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Debug.Log("Bouncing at " + transform.position);
-            lastVerticalSpeed = bounceForce;
+            bounceSpeed = bounceForce;
         }
     }
 
     public void BoostUp()
     {
-        lastVerticalSpeed += wingFlapBoost;
+        bounceSpeed += wingFlapBoost;
     }
 }
