@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.43846726, g: 0.48655307, b: 0.5668256, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -135,20 +135,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5fd0d970aa683468e8263d91cb2f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationRadius: 500
+  generationRadius: 1000
   chunk: {fileID: 1355105892577324, guid: 09cf7927e4479b2479d41422b71ec5b7, type: 2}
   environment:
   - type: Tree
     variants:
     - {fileID: 1867408324232786, guid: b9b8d855e3ae7aa4882629fc9aa67b5d, type: 2}
     - {fileID: 1867408324232786, guid: ea4c070860500cc418c84cdafc44fc0f, type: 2}
-    spawnChance: 0.75
+    spawnChance: 0.6
     minAmount: 1
     maxAmount: 1
     minSize: 5
     maxSize: 10
     minHeight: 0
     maxHeight: 0
+  - type: Cloud
+    variants:
+    - {fileID: 1760820797273236, guid: 5a9d6b32bb2eaab40a18424cc171851f, type: 2}
+    - {fileID: 1862866202857126, guid: a70e588054bc44041b70f509ffcf88dc, type: 2}
+    spawnChance: 0.8
+    minAmount: 1
+    maxAmount: 1
+    minSize: 3
+    maxSize: 6
+    minHeight: 3
+    maxHeight: 15
 --- !u!4 &1247640499
 Transform:
   m_ObjectHideFlags: 0
@@ -239,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1432317185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -341,7 +352,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825820276}
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 5, z: -7.5}
+  m_LocalPosition: {x: 0, y: 17.5, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -432,10 +443,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1844696727}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.58801836, y: -0.20533493, z: 0.157559, w: 0.7663205}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 75, y: -30, z: 0}

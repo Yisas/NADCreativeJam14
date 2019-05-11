@@ -68,6 +68,7 @@ public class ProceduralGeneration : MonoBehaviour
                 var instance = Instantiate(variant, Vector3.zero, Quaternion.identity);
                 instance.transform.SetParent(chunk.transform);
                 instance.transform.localScale = Vector3.one * Random.Range(element.minSize, element.maxSize);
+                instance.transform.rotation = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
                 var extents = instance.GetComponent<Collider>().bounds.extents;
                 var position = Vector3.zero;
                 do
