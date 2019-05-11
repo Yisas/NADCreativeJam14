@@ -6,6 +6,8 @@ public class BirdCharacterController : MonoBehaviour
 {
     [SerializeField]
     float glidingSpeed;
+    [SerializeField]
+    float turnSpeed;
 
     [SerializeField]
     float horizontalSpeed;
@@ -23,12 +25,17 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float verticalTiltSelfCorrectionSpeed; // Value between 0 and 1, determines how fast the character tilts back to rotation 0 when there is no airborne vertical input
 
+    [SerializeField]
+    float bounceForce;
+
     // Input variables
     float horizontalInput;
     float verticalInput;
+    float turnInput;
 
     // Movement variables
     float tiltSelfcorrectionT = 0;       // t for the lerp back to 0 rotation, when there is no horizontal input
+    float lastVerticalSpeed = 0;
 
     Rigidbody rb;
 
@@ -49,9 +56,12 @@ public class BirdCharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Turn();
+
         // Move character along forward vector
-        rb.velocity = transform.forward * glidingSpeed;
-        rb.velocity = new Vector3(rb.velocity.x, rb.mass * Physics.gravity.y, rb.velocity.z);
+        Vector3 forwardVelocityVector = transform.forward * glidingSpeed;
+        rb.velocity = new Vector3(forwardVelocityVector.x, lastVerticalSpeed + (Physics.gravity.y * Time.deltaTime), forwardVelocityVector.z);
+        lastVerticalSpeed = rb.velocity.y;
 
         // Add horizontal gliding speed if pertinent
         if (Mathf.Abs(horizontalInput) > 0)
@@ -64,6 +74,7 @@ public class BirdCharacterController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
+        turnInput = Input.GetAxis("Turn");
     }
 
     void HorizontalTilt()
@@ -115,6 +126,23 @@ public class BirdCharacterController : MonoBehaviour
 
             // Has to be a percentile for lerp to work
             Mathf.Clamp(tiltSelfcorrectionT, 0, 1);
+        }
+    }
+
+    void Turn()
+    {
+        if(Mathf.Abs(turnInput) > 0)
+        {
+            transform.RotateAround(transform.position, Vector3.up, turnInput * turnSpeed);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Debug.Log("Bouncing at " + transform.position);
+            lastVerticalSpeed = bounceForce;
         }
     }
 }
