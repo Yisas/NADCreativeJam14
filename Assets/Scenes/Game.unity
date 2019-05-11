@@ -267,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 1725934183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 500, y: 1, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -297,7 +297,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4005601681964218, guid: ab87cd3e646a43045b0891523086108c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 30
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4005601681964218, guid: ab87cd3e646a43045b0891523086108c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -331,7 +331,7 @@ Prefab:
     - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
         type: 2}
       propertyPath: verticalMaxTilt
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
         type: 2}
@@ -346,7 +346,7 @@ Prefab:
     - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
         type: 2}
       propertyPath: bounceForce
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 54281898225190740, guid: ab87cd3e646a43045b0891523086108c,
         type: 2}
@@ -356,12 +356,22 @@ Prefab:
     - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
         type: 2}
       propertyPath: turnSpeed
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
         type: 2}
       propertyPath: horizontalSpeed
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
+        type: 2}
+      propertyPath: turnAcceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541136267137080, guid: ab87cd3e646a43045b0891523086108c,
+        type: 2}
+      propertyPath: horizontalBankAcceleration
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab87cd3e646a43045b0891523086108c, type: 2}

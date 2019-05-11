@@ -7,10 +7,10 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float glidingSpeed;
     [SerializeField]
-    float turnSpeed;
+    float turnAcceleration;
 
     [SerializeField]
-    float horizontalSpeed;
+    float horizontalBankAcceleration;
     [SerializeField]
     float horizontalAngularTiltSpeed;
     [SerializeField]
@@ -29,13 +29,13 @@ public class BirdCharacterController : MonoBehaviour
     float bounceForce;
 
     // Input variables
-    float horizontalInput;
-    float verticalInput;
-    float turnInput;
+    float horizontalInput = 0;
+    float verticalInput = 0;
 
     // Movement variables
     float tiltSelfcorrectionT = 0;       // t for the lerp back to 0 rotation, when there is no horizontal input
     float lastVerticalSpeed = 0;
+    float turnStartTime = 0;
 
     Rigidbody rb;
 
@@ -56,25 +56,26 @@ public class BirdCharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Turn();
-
         // Move character along forward vector
         Vector3 forwardVelocityVector = transform.forward * glidingSpeed;
         rb.velocity = new Vector3(forwardVelocityVector.x, lastVerticalSpeed + (Physics.gravity.y * Time.deltaTime), forwardVelocityVector.z);
         lastVerticalSpeed = rb.velocity.y;
 
-        // Add horizontal gliding speed if pertinent
-        if (Mathf.Abs(horizontalInput) > 0)
-        {
-            rb.velocity = rb.velocity + (transform.right) * horizontalSpeed * horizontalInput;
-        }
+        Turn();
     }
 
     void InputCollection()
     {
+        float previousHorizontalInput = horizontalInput;
         horizontalInput = Input.GetAxis("Horizontal");
+
+        // If signchange or increment from 0, relative to last horizontal input, turning started
+        if(Mathf.Sign(horizontalInput) != Mathf.Sign(previousHorizontalInput) || (previousHorizontalInput == 0 && Mathf.Abs(horizontalInput) > 0))
+        {
+            turnStartTime = Time.time;
+        }
+
         verticalInput = Input.GetAxis("Vertical");
-        turnInput = Input.GetAxis("Turn");
     }
 
     void HorizontalTilt()
@@ -131,9 +132,12 @@ public class BirdCharacterController : MonoBehaviour
 
     void Turn()
     {
-        if(Mathf.Abs(turnInput) > 0)
+        if(Mathf.Abs(horizontalInput) > 0)
         {
-            transform.RotateAround(transform.position, Vector3.up, turnInput * turnSpeed);
+            transform.RotateAround(transform.position, Vector3.up, horizontalInput * turnAcceleration * (Time.time - turnStartTime));
+            
+            // Add horizontal banking acceleration
+            rb.velocity = rb.velocity + (transform.right * horizontalBankAcceleration * horizontalInput * (Time.time - turnStartTime));
         }
     }
 
