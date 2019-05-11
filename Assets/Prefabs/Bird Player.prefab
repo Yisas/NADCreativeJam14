@@ -1945,8 +1945,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.50443673, y: 0.24976492, z: 0.34574458}
-  m_Center: {x: 0.02591145, y: 0.12349796, z: 0.017523065}
+  m_Size: {x: 0.28030354, y: 0.18473816, z: 0.19724657}
+  m_Center: {x: -0.0157336, y: 0.107185364, z: -0.025193594}
 --- !u!81 &81279424048473524
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1999,10 +1999,11 @@ MonoBehaviour:
   horizontalMaxTilt: 20
   horizontalTiltSelfCorrectionSpeed: 0.005
   verticalAngularTiltSpeed: 1
-  verticalMaxTilt: 20
+  verticalDiveMaxTilt: 40
+  verticalUpwardsMaxTilt: 20
   verticalTiltSelfCorrectionSpeed: 0.005
   wingFlapBoost: 40
-  bounceForce: 5000
+  bounceForce: 500
 --- !u!124 &124511892946389784
 Behaviour:
   m_ObjectHideFlags: 1

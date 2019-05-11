@@ -27,7 +27,9 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float verticalAngularTiltSpeed;
     [SerializeField]
-    float verticalMaxTilt;
+    float verticalDiveMaxTilt;
+    [SerializeField]
+    float verticalUpwardsMaxTilt;
     [SerializeField]
     float verticalTiltSelfCorrectionSpeed; // Value between 0 and 1, determines how fast the character tilts back to rotation 0 when there is no airborne vertical input
 
@@ -41,9 +43,11 @@ public class BirdCharacterController : MonoBehaviour
     float verticalInput = 0;
 
     // Movement variables
+    bool diving = false;
     float tiltSelfcorrectionT = 0;       // t for the lerp back to 0 rotation, when there is no horizontal input
     float bounceSpeed = 0;
     float turnStartTime = 0;
+    Vector3 originalPosition;
 
     Rigidbody rb;
 
@@ -52,6 +56,7 @@ public class BirdCharacterController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        originalPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -60,6 +65,8 @@ public class BirdCharacterController : MonoBehaviour
         InputCollection();
         VecticalTilt();
         HorizontalTilt();
+
+        diving = verticalInput > 0;
     }
 
     private void FixedUpdate()
@@ -128,7 +135,7 @@ public class BirdCharacterController : MonoBehaviour
             // Calculate rotation
             float rotation = verticalAngularTiltSpeed * verticalInput;
 
-            rotation = Mathf.Clamp(rotation + currentRotation, -verticalMaxTilt, verticalMaxTilt);
+            rotation = Mathf.Clamp(rotation + currentRotation, -verticalUpwardsMaxTilt, verticalDiveMaxTilt);
 
             transform.rotation = Quaternion.Euler(new Vector3(rotation, transform.eulerAngles.y, transform.eulerAngles.z));
         }
@@ -173,15 +180,26 @@ public class BirdCharacterController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Bouncy"))
+        if (collision.transform.tag == "Bouncy")
         {
             Debug.Log("Bouncing at " + transform.position);
             bounceSpeed = bounceForce;
+        }
+
+        if(collision.transform.tag == "Ground")
+        {
+            transform.position = originalPosition;
+        }
+
+        if(collision.transform.tag == "Tree")
+        {
+            transform.position = originalPosition;
         }
     }
 
     public void BoostUp()
     {
-        bounceSpeed += wingFlapBoost;
+        if(!diving)
+            bounceSpeed += wingFlapBoost;
     }
 }
