@@ -31,6 +31,7 @@ public class Fade : MonoBehaviour
         if (!fading && distance <= fadeDistance)
         {
             StartCoroutine(FadeCoroutine());
+            GetComponent<AudioSource>().PlayOneShot(fadeSound);
             GetComponent<FadingBird>().enabled = false;
         }
 	}
