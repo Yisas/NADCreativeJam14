@@ -28,7 +28,7 @@ public class GManager : MonoBehaviour
 
     IEnumerator HideTransition()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         transition.CrossFadeInFixedTime("Transparent", 3);
     }
 
