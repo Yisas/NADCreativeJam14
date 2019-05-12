@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4776481003776112, guid: ebaaa1858aaab4a46bc82069360a161b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4032007909417158, guid: ebaaa1858aaab4a46bc82069360a161b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -245,6 +245,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7196963201878313318, guid: ebaaa1858aaab4a46bc82069360a161b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebaaa1858aaab4a46bc82069360a161b, type: 3}
 --- !u!1 &1247640497
@@ -281,26 +286,24 @@ MonoBehaviour:
   environment:
   - type: Tree
     variants:
-    - {fileID: 1867408324232786, guid: b9b8d855e3ae7aa4882629fc9aa67b5d, type: 3}
-    - {fileID: 1867408324232786, guid: ea4c070860500cc418c84cdafc44fc0f, type: 3}
-    spawnChance: 0.3
+    - {fileID: 974191107596353731, guid: d4d00e88f5b385540a102a7dcba12d93, type: 3}
+    spawnChance: 0.15
     minAmount: 1
     maxAmount: 1
-    minSize: 1
-    maxSize: 2
+    minSize: 0.25
+    maxSize: 2.5
     minHeight: 0
     maxHeight: 0
   - type: Cloud
     variants:
-    - {fileID: 1760820797273236, guid: 5a9d6b32bb2eaab40a18424cc171851f, type: 3}
-    - {fileID: 1862866202857126, guid: a70e588054bc44041b70f509ffcf88dc, type: 3}
-    spawnChance: 0.8
+    - {fileID: 462040307885984327, guid: b86b21c1a7a49454aba11f1fc4ac3f04, type: 3}
+    spawnChance: 0.3
     minAmount: 1
     maxAmount: 1
-    minSize: 0.5
-    maxSize: 1
+    minSize: 1
+    maxSize: 3
     minHeight: 1
-    maxHeight: 5
+    maxHeight: 10
   - type: Bird
     variants:
     - {fileID: 1649756006791206, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
@@ -323,7 +326,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1844696727
 GameObject:
