@@ -119,6 +119,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 95625635532857762, guid: ab87cd3e646a43045b0891523086108c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0b91e65bfdedf7b4fa3b0805285b5aad, type: 2}
     - target: {fileID: 4005601681964218, guid: ab87cd3e646a43045b0891523086108c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -179,6 +184,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 85683855}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &458493881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458493880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fa3cdf3cbc0464ab1ae549e9914883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &458493883 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95625635532857762, guid: ab87cd3e646a43045b0891523086108c,
@@ -192,7 +209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458493880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa6b6134ed953f949b801480da40f5cc, type: 3}
   m_Name: 
@@ -215,7 +232,6 @@ MonoBehaviour:
   bounceForce: 0
   levelUpperBoundary: 0
   levelLowerBoundary: 0
-  cloudYLevel: 0
   cloudEnterSound: {fileID: 8300000, guid: 2fa413b1d30d0484e971db7830a0f330, type: 3}
   wingFlapSound: {fileID: 8300000, guid: 5ba2ab618ca6a25418722d23f6679aea, type: 3}
   deathSound: {fileID: 0}
