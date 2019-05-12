@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.65882355, g: 0.7725491, b: 0.8745099, a: 1}
+  m_FogColor: {r: 1, g: 1, b: 1, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.0035
   m_LinearFogStart: 0
@@ -119,6 +119,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1420991834387292, guid: ebaaa1858aaab4a46bc82069360a161b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4776481003776112, guid: ebaaa1858aaab4a46bc82069360a161b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -234,51 +238,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebaaa1858aaab4a46bc82069360a161b, type: 3}
---- !u!1001 &896190120
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1649756006791206, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046430059382318, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046430059382318, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046430059382318, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046430059382318, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046430059382318, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046430059382318, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046430059382318, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046430059382318, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
 --- !u!1 &1247640497
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,14 +267,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5fd0d970aa683468e8263d91cb2f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationRadius: 350
+  generationRadius: 325
   chunk: {fileID: 1355105892577324, guid: 891d1448716cce4418c3cdd8dd7bdf40, type: 3}
   environment:
   - type: Tree
     variants:
     - {fileID: 1867408324232786, guid: b9b8d855e3ae7aa4882629fc9aa67b5d, type: 3}
     - {fileID: 1867408324232786, guid: ea4c070860500cc418c84cdafc44fc0f, type: 3}
-    spawnChance: 0.5
+    spawnChance: 0.3
     minAmount: 1
     maxAmount: 1
     minSize: 1
@@ -333,6 +292,16 @@ MonoBehaviour:
     maxSize: 1
     minHeight: 1
     maxHeight: 5
+  - type: Bird
+    variants:
+    - {fileID: 1649756006791206, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
+    spawnChance: 0.025
+    minAmount: 1
+    maxAmount: 1
+    minSize: 15
+    maxSize: 15
+    minHeight: 1
+    maxHeight: 10
 --- !u!4 &1247640499
 Transform:
   m_ObjectHideFlags: 0

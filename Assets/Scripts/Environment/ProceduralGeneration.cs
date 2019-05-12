@@ -45,7 +45,7 @@ public class ProceduralGeneration : MonoBehaviour
 	
 	private void Update()
     {
-        GenerateNewChunks();
+           GenerateNewChunks();
     }
 
     // Generate the environmental elements in the chunk given chunk.
@@ -120,6 +120,8 @@ public class ProceduralGeneration : MonoBehaviour
     // Generate new environment chunks if necessary.
     private void GenerateNewChunks()
     {
+        if (player == null)
+            return;
         var generationNeeded = false;
         foreach (Vector3 chunkPosition in new HashSet<Vector3>(ungeneratedChunks))
         {

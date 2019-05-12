@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Fade : MonoBehaviour
 {
-	static float fadeDistance = 7.5f;
-	static float fadingSpeed = 0.1f;
+	static float fadeDistance = 25;
+	static float fadingSpeed = 0.4f;
 
 	Transform player;
 	bool fading = false;
@@ -17,20 +17,21 @@ public class Fade : MonoBehaviour
 		{
 			renderer.material = new Material(renderer.material);
 		}
-		StartCoroutine(FadeCoroutine());		
+		GetComponentInChildren<Animator>().SetBool("flapping", true);
 	}
 	
 	void Update()
 	{
-		if (fading)
+		if (fading || player == null)
 			return;
 		var distance = Vector3.Distance(transform.position, player.position);
-		//if (distance <= fadeDistance)
-		//	StartCoroutine(FadeCoroutine());
+		if (!fading && distance <= fadeDistance)
+			StartCoroutine(FadeCoroutine());
 	}
 
 	IEnumerator FadeCoroutine()
 	{
+		fading = true;
 		float fade = 0;
 		while (fade < 1)
 		{
@@ -41,5 +42,6 @@ public class Fade : MonoBehaviour
 			}
 			yield return null;
 		}
+		Destroy(gameObject);
 	}
 }
