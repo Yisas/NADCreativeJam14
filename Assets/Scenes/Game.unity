@@ -189,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 114400982348127308, guid: ebaaa1858aaab4a46bc82069360a161b,
         type: 3}
       propertyPath: maxHorizontalSpeed
-      value: 7.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114400982348127308, guid: ebaaa1858aaab4a46bc82069360a161b,
         type: 3}

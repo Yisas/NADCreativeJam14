@@ -46,8 +46,6 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float levelLowerBoundary;
     [SerializeField]
-    float cloudYLevel;
-    [SerializeField]
     AudioClip cloudEnterSound;
     [SerializeField]
     AudioClip wingFlapSound;
@@ -104,10 +102,6 @@ public class BirdCharacterController : MonoBehaviour
 
         diving = (verticalInput > 0 && transform.position.y > levelLowerBoundary);
 
-        if (transform.position.y < cloudYLevel && lastVerticalPosition >= cloudYLevel)
-        {
-            audioSource.PlayOneShot(cloudEnterSound);
-        }
         lastVerticalPosition = transform.position.y;
     }
 
@@ -247,6 +241,14 @@ public class BirdCharacterController : MonoBehaviour
             Instantiate(deathVFX, transform.position, Quaternion.identity);
             collider.enabled = false;
             cameraAnimator.SetTrigger("fadeToBlack");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Cloud")
+        {
+            audioSource.PlayOneShot(cloudEnterSound);
         }
     }
 
