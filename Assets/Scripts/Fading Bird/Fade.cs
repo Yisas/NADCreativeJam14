@@ -7,7 +7,7 @@ public class Fade : MonoBehaviour
     [SerializeField]
     AudioClip fadeSound;
 
-	static float fadeDistance = 25;
+	static float fadeDistance = 15;
 	static float fadingSpeed = 0.4f;
 
 	Transform player;

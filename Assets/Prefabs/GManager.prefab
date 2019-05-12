@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 0}
   timerText: {fileID: 0}
-  time: 300
+  time: 120
   secondMainTheme: {fileID: 8300000, guid: 41180405163ae844bbce511e69cecc79, type: 3}
 --- !u!82 &2357053524043082582
 AudioSource:
@@ -60,7 +60,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e737ebf49092282478c8efc637ae7b84, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

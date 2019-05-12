@@ -103,15 +103,6 @@ public class BirdCharacterController : MonoBehaviour
 
         InputCollection();
 
-        if (Input.GetButtonDown("Sprint"))
-        {
-            glidingSpeed = sprintSpeed;
-        }
-        else if (Input.GetButtonUp("Sprint"))
-        {
-            glidingSpeed = initialGlideSpeed;
-        }
-
         VecticalTilt();
         HorizontalTilt();
         UpdateAnimator();
