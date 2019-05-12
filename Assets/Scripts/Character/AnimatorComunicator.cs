@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class AnimatorComunicator : MonoBehaviour {
 
-    private BirdCharacterController birdChar;
+    public BirdCharacterController birdChar;
 
     public void BoostUp()
     {
         birdChar.BoostUp();
     }
 
+    public void Respawn()
+    {
+        birdChar.Respawn();
+    }
+
 	// Use this for initialization
 	void Start () {
-        birdChar = GetComponentInParent<BirdCharacterController>();
 	}
 	
 	// Update is called once per frame

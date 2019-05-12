@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 82169e47ed9a9e840bcbf42edf12e237
+timeCreated: 1557621448
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: BeakDown
+    100002: BeakUP
+    100004: Body
+    100006: body
+    100008: FooTL
+    100010: FootR
+    100012: Head
+    100014: HipL
+    100016: HipR
+    100018: joint11
+    100020: joint33
+    100022: l_bigtail
+    100024: l_tail
+    100026: LegL
+    100028: LegR
+    100030: //RootNode
+    100032: Mouth
+    100034: r_bigtail
+    100036: r_tail
+    100038: ShinL
+    100040: ShinR
+    100042: TailL
+    100044: TailLDown
+    100046: TailLTop
+    100048: TailR
+    100050: TailRDown
+    100052: TailRTop
+    100054: ToeL1
+    100056: ToeL2
+    100058: ToeL3
+    100060: ToeR1
+    100062: ToeR2
+    100064: ToeR3
+    100066: WingElbowL
+    100068: WingElbowR
+    100070: WingHandL
+    100072: WingHandR
+    100074: WingL
+    100076: WingR
+    400000: BeakDown
+    400002: BeakUP
+    400004: Body
+    400006: body
+    400008: FooTL
+    400010: FootR
+    400012: Head
+    400014: HipL
+    400016: HipR
+    400018: joint11
+    400020: joint33
+    400022: l_bigtail
+    400024: l_tail
+    400026: LegL
+    400028: LegR
+    400030: //RootNode
+    400032: Mouth
+    400034: r_bigtail
+    400036: r_tail
+    400038: ShinL
+    400040: ShinR
+    400042: TailL
+    400044: TailLDown
+    400046: TailLTop
+    400048: TailR
+    400050: TailRDown
+    400052: TailRTop
+    400054: ToeL1
+    400056: ToeL2
+    400058: ToeL3
+    400060: ToeR1
+    400062: ToeR2
+    400064: ToeR3
+    400066: WingElbowL
+    400068: WingElbowR
+    400070: WingHandL
+    400072: WingHandR
+    400074: WingL
+    400076: WingR
+    4300000: r_tail
+    4300002: l_tail
+    4300004: r_bigtail
+    4300006: l_bigtail
+    4300008: body
+    7400000: TPose
+    7400002: LevelGlide
+    7400004: LevelFlapping
+    7400006: Dive
+    7400008: BankLeft
+    7400010: BankRight
+    7400012: Climb
+    9500000: //RootNode
+    13700000: body
+    13700002: l_bigtail
+    13700004: l_tail
+    13700006: r_bigtail
+    13700008: r_tail
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

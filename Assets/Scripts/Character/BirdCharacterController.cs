@@ -42,19 +42,34 @@ public class BirdCharacterController : MonoBehaviour
     float bounceForce;
 
     [SerializeField]
+    float levelUpperBoundary;
+    [SerializeField]
+    float levelLowerBoundary;
+    [SerializeField]
     float cloudYLevel;
     [SerializeField]
     AudioClip cloudEnterSound;
     [SerializeField]
     AudioClip wingFlapSound;
+    [SerializeField]
+    AudioClip deathSound;
+    [SerializeField]
+    AudioClip collisionSound;
 
-    public Animator anim;
+    [SerializeField]
+    GameObject deathVFX;
+
+    [SerializeField]
+    Animator anim;
+    [SerializeField]
+    Animator cameraAnimator;
 
     // Input variables
     float horizontalInput = 0;
     float verticalInput = 0;
 
     // Movement variables
+    float initialGlideSpeed;
     bool diving = false;
     float tiltSelfcorrectionT = 0;       // t for the lerp back to 0 rotation, when there is no horizontal input
     float bounceSpeed = 0;
@@ -64,13 +79,16 @@ public class BirdCharacterController : MonoBehaviour
 
     AudioSource audioSource;
     Rigidbody rb;
+    Collider collider;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        collider = GetComponent<Collider>();
         originalPosition = transform.position;
+        initialGlideSpeed = glidingSpeed;
     }
 
     // Update is called once per frame
@@ -84,7 +102,7 @@ public class BirdCharacterController : MonoBehaviour
         HorizontalTilt();
         UpdateAnimator();
 
-        diving = verticalInput > 0;
+        diving = (verticalInput > 0 && transform.position.y > levelLowerBoundary);
 
         if (transform.position.y < cloudYLevel && lastVerticalPosition >= cloudYLevel)
         {
@@ -152,7 +170,17 @@ public class BirdCharacterController : MonoBehaviour
         // Transform euler angle to negative of positive
         float currentRotation = (transform.eulerAngles.x > 180) ? transform.eulerAngles.x - 360 : transform.eulerAngles.x;
 
-        if (verticalInput != 0)
+        if (verticalInput == 0 || (transform.position.y <= levelLowerBoundary && verticalInput >= 0) || (transform.position.y >= levelUpperBoundary && verticalInput <= 0))
+        {
+            currentRotation = (transform.eulerAngles.x > 180) ? transform.eulerAngles.x - 360 : transform.eulerAngles.x;
+
+            transform.rotation = Quaternion.Euler(new Vector3(Mathf.Lerp(currentRotation, 0, tiltSelfcorrectionT), transform.eulerAngles.y, transform.eulerAngles.z));
+            tiltSelfcorrectionT += verticalTiltSelfCorrectionSpeed;
+
+            // Has to be a percentile for lerp to work
+            Mathf.Clamp(tiltSelfcorrectionT, 0, 1);
+        }
+        else
         {
             tiltSelfcorrectionT = 0;     // Reset lerping back to 0
 
@@ -162,14 +190,6 @@ public class BirdCharacterController : MonoBehaviour
             rotation = Mathf.Clamp(rotation + currentRotation, -verticalUpwardsMaxTilt, verticalDiveMaxTilt);
 
             transform.rotation = Quaternion.Euler(new Vector3(rotation, transform.eulerAngles.y, transform.eulerAngles.z));
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(Mathf.Lerp(currentRotation, 0, tiltSelfcorrectionT), transform.eulerAngles.y, transform.eulerAngles.z));
-            tiltSelfcorrectionT += verticalTiltSelfCorrectionSpeed;
-
-            // Has to be a percentile for lerp to work
-            Mathf.Clamp(tiltSelfcorrectionT, 0, 1);
         }
     }
 
@@ -221,7 +241,12 @@ public class BirdCharacterController : MonoBehaviour
 
         if(collision.transform.tag == "Tree")
         {
-            transform.position = originalPosition;
+            glidingSpeed = 0;
+            audioSource.PlayOneShot(deathSound);
+            audioSource.PlayOneShot(collisionSound);
+            Instantiate(deathVFX, transform.position, Quaternion.identity);
+            collider.enabled = false;
+            cameraAnimator.SetTrigger("fadeToBlack");
         }
     }
 
@@ -240,5 +265,13 @@ public class BirdCharacterController : MonoBehaviour
         anim.SetBool("bankRight", horizontalInput > 0.2f);
         anim.SetBool("bankLeft", horizontalInput < -0.2f);
         anim.SetBool("flapping", verticalInput < -0.2f);
+    }
+
+    public void Respawn()
+    {
+        glidingSpeed = initialGlideSpeed;
+        transform.position = originalPosition;
+        collider.enabled = true;
+        cameraAnimator.SetTrigger("fadeIn");
     }
 }
