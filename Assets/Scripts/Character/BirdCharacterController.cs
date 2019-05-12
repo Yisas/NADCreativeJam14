@@ -46,14 +46,23 @@ public class BirdCharacterController : MonoBehaviour
     AudioClip cloudEnterSound;
     [SerializeField]
     AudioClip wingFlapSound;
+    [SerializeField]
+    AudioClip deathSound;
 
-    public Animator anim;
+    [SerializeField]
+    GameObject deathVFX;
+
+    [SerializeField]
+    Animator anim;
+    [SerializeField]
+    Animator cameraAnimator;
 
     // Input variables
     float horizontalInput = 0;
     float verticalInput = 0;
 
     // Movement variables
+    float initialGlideSpeed;
     bool diving = false;
     float tiltSelfcorrectionT = 0;       // t for the lerp back to 0 rotation, when there is no horizontal input
     float bounceSpeed = 0;
@@ -63,13 +72,16 @@ public class BirdCharacterController : MonoBehaviour
 
     AudioSource audioSource;
     Rigidbody rb;
+    Collider collider;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        collider = GetComponent<Collider>();
         originalPosition = transform.position;
+        initialGlideSpeed = glidingSpeed;
     }
 
     // Update is called once per frame
@@ -202,7 +214,7 @@ public class BirdCharacterController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.tag == "Bouncy")
         {
@@ -217,7 +229,11 @@ public class BirdCharacterController : MonoBehaviour
 
         if(collision.transform.tag == "Tree")
         {
-            transform.position = originalPosition;
+            glidingSpeed = 0;
+            audioSource.PlayOneShot(deathSound);
+            Instantiate(deathVFX, transform.position, Quaternion.identity);
+            collider.enabled = false;
+            cameraAnimator.SetTrigger("fadeToBlack");
         }
     }
 
@@ -236,5 +252,13 @@ public class BirdCharacterController : MonoBehaviour
         anim.SetBool("bankRight", horizontalInput > 0.2f);
         anim.SetBool("bankLeft", horizontalInput < -0.2f);
         anim.SetBool("flapping", verticalInput < -0.2f);
+    }
+
+    public void Respawn()
+    {
+        glidingSpeed = initialGlideSpeed;
+        transform.position = originalPosition;
+        collider.enabled = true;
+        cameraAnimator.SetTrigger("fadeIn");
     }
 }
