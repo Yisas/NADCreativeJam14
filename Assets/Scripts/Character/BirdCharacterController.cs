@@ -53,6 +53,8 @@ public class BirdCharacterController : MonoBehaviour
     AudioClip wingFlapSound;
     [SerializeField]
     AudioClip deathSound;
+    [SerializeField]
+    AudioClip collisionSound;
 
     [SerializeField]
     GameObject deathVFX;
@@ -241,6 +243,7 @@ public class BirdCharacterController : MonoBehaviour
         {
             glidingSpeed = 0;
             audioSource.PlayOneShot(deathSound);
+            audioSource.PlayOneShot(collisionSound);
             Instantiate(deathVFX, transform.position, Quaternion.identity);
             collider.enabled = false;
             cameraAnimator.SetTrigger("fadeToBlack");
