@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lowpoly_Tree2
       objectReference: {fileID: 0}
+    - target: {fileID: 1492935390097760, guid: 4351b780fcfcd2249a96d39a25474299, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 4179389181283384, guid: 4351b780fcfcd2249a96d39a25474299, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
