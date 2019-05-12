@@ -22,8 +22,14 @@ public class GManager : MonoBehaviour
     void Start()
     {
         transition.GetComponent<Image>().enabled = true;
-        transition.CrossFadeInFixedTime("Transparent", 3);
         audioSource = GetComponent<AudioSource>();
+        StartCoroutine(HideTransition());
+    }
+
+    IEnumerator HideTransition()
+    {
+        yield return new WaitForSeconds(1);
+        transition.CrossFadeInFixedTime("Transparent", 3);
     }
 
     // Update is called once per frame
