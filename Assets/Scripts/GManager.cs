@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GManager : MonoBehaviour
 {
+    [SerializeField] Animator transition;
     public Text timerText;
     public float time;
 
@@ -13,7 +14,8 @@ public class GManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transition.GetComponent<Image>().enabled = true;
+        transition.CrossFadeInFixedTime("Transparent", 3);
     }
 
     // Update is called once per frame

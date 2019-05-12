@@ -9,6 +9,7 @@ public class CameraTransition : MonoBehaviour
     [SerializeField] Animator transition;
     void Start()
     {
+        transition.GetComponent<Image>().enabled = true;
         StartCoroutine(Transition());
     }
 
@@ -18,7 +19,7 @@ public class CameraTransition : MonoBehaviour
         yield return new WaitForSeconds(3);
         GetComponent<Animator>().CrossFadeInFixedTime("CameraNear", 3);
         transition.CrossFadeInFixedTime("Opaque", 3);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3.1f);
         SceneManager.LoadScene(3);
     }
 }
