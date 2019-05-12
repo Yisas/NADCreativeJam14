@@ -8,6 +8,8 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float glidingSpeed;
     [SerializeField]
+    float sprintSpeed;
+    [SerializeField]
     float gravityMultiplier;
     [SerializeField]
     float turnAcceleration;
@@ -75,7 +77,11 @@ public class BirdCharacterController : MonoBehaviour
     float lastVerticalPosition = 0;
     Vector3 originalPosition;
 
-    AudioSource audioSource;
+    public AudioSource mainAudioSource;
+    public AudioSource divingAudioSource;
+    public float divingFadeOutInterval;
+    private float divingAudioSourceInitVolume;
+
     Rigidbody rb;
     Collider collider;
 
@@ -83,10 +89,10 @@ public class BirdCharacterController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
         collider = GetComponent<Collider>();
         originalPosition = transform.position;
         initialGlideSpeed = glidingSpeed;
+        divingAudioSourceInitVolume = divingAudioSource.volume;
     }
 
     // Update is called once per frame
@@ -96,11 +102,32 @@ public class BirdCharacterController : MonoBehaviour
             SceneManager.LoadScene(0);
 
         InputCollection();
+
+        if (Input.GetButtonDown("Sprint"))
+        {
+            glidingSpeed = sprintSpeed;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            glidingSpeed = initialGlideSpeed;
+        }
+
         VecticalTilt();
         HorizontalTilt();
         UpdateAnimator();
 
+        bool previousDiving = diving;
         diving = (verticalInput > 0 && transform.position.y > levelLowerBoundary);
+        if (diving && !previousDiving)
+        {
+            divingAudioSource.volume = divingAudioSourceInitVolume;
+            divingAudioSource.Play();
+        }
+        else if (!diving && previousDiving)
+        {
+            StartCoroutine(FadeOutVolume(divingFadeOutInterval));
+        }
+
 
         lastVerticalPosition = transform.position.y;
     }
@@ -236,8 +263,8 @@ public class BirdCharacterController : MonoBehaviour
         if(collision.transform.tag == "Tree")
         {
             glidingSpeed = 0;
-            audioSource.PlayOneShot(deathSound);
-            audioSource.PlayOneShot(collisionSound);
+            mainAudioSource.PlayOneShot(deathSound);
+            mainAudioSource.PlayOneShot(collisionSound);
             Instantiate(deathVFX, transform.position, Quaternion.identity);
             collider.enabled = false;
             cameraAnimator.SetTrigger("fadeToBlack");
@@ -248,7 +275,7 @@ public class BirdCharacterController : MonoBehaviour
     {
         if(other.tag == "Cloud")
         {
-            audioSource.PlayOneShot(cloudEnterSound);
+            mainAudioSource.PlayOneShot(cloudEnterSound);
         }
     }
 
@@ -257,7 +284,7 @@ public class BirdCharacterController : MonoBehaviour
         if (!diving)
         {
             bounceSpeed += wingFlapBoost;
-            audioSource.PlayOneShot(wingFlapSound);
+            mainAudioSource.PlayOneShot(wingFlapSound);
         }
     }
 
@@ -275,5 +302,14 @@ public class BirdCharacterController : MonoBehaviour
         transform.position = originalPosition;
         collider.enabled = true;
         cameraAnimator.SetTrigger("fadeIn");
+    }
+
+    IEnumerator FadeOutVolume(float fadeOutTime)
+    {
+        for (float t = divingAudioSourceInitVolume; t > 0.0f; t -= Time.deltaTime / fadeOutTime)
+        {
+            divingAudioSource.volume = t;
+            yield return null;
+        }
     }
 }

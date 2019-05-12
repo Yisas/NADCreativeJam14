@@ -1613,6 +1613,8 @@ GameObject:
   - component: {fileID: 114400982348127308}
   - component: {fileID: 7196963201878313318}
   - component: {fileID: 82083179205831970}
+  - component: {fileID: 1187411259871800573}
+  - component: {fileID: 603169992205872182}
   m_Layer: 0
   m_Name: Bird Player
   m_TagString: Player
@@ -1664,6 +1666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glidingSpeed: 5
+  sprintSpeed: 0
   gravityMultiplier: 5
   turnAcceleration: 0.8
   maxTurnSpeed: 1
@@ -1681,7 +1684,6 @@ MonoBehaviour:
   bounceForce: 0
   levelUpperBoundary: 140
   levelLowerBoundary: 5
-  cloudYLevel: 15
   cloudEnterSound: {fileID: 8300000, guid: 2fa413b1d30d0484e971db7830a0f330, type: 3}
   wingFlapSound: {fileID: 8300000, guid: 5ba2ab618ca6a25418722d23f6679aea, type: 3}
   deathSound: {fileID: 8300000, guid: ff20751ffd233954a97aa8c7a3dde512, type: 3}
@@ -1689,6 +1691,9 @@ MonoBehaviour:
   deathVFX: {fileID: 100000, guid: dface612412fb6844b79f0751f8b5ee5, type: 3}
   anim: {fileID: 95426562797091848}
   cameraAnimator: {fileID: 1829488437099537483}
+  mainAudioSource: {fileID: 82083179205831970}
+  divingAudioSource: {fileID: 1187411259871800573}
+  divingFadeOutInterval: 1.2
 --- !u!135 &7196963201878313318
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1714,7 +1719,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1798,6 +1803,117 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &1187411259871800573
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967745865114138}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 201a79ce7344e1441904cd201a8f70c1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &603169992205872182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967745865114138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d724417ca402ec45800b6fdabb79875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeOutThreshold: 0.05
+  FadeSpeed: 0.05
+  audioSource: {fileID: 1187411259871800573}
 --- !u!1 &1975470065686040
 GameObject:
   m_ObjectHideFlags: 0
