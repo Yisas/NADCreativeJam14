@@ -41,6 +41,10 @@ public class BirdCharacterController : MonoBehaviour
     float bounceForce;
 
     [SerializeField]
+    float levelUpperBoundary;
+    [SerializeField]
+    float levelLowerBoundary;
+    [SerializeField]
     float cloudYLevel;
     [SerializeField]
     AudioClip cloudEnterSound;
@@ -148,7 +152,17 @@ public class BirdCharacterController : MonoBehaviour
         // Transform euler angle to negative of positive
         float currentRotation = (transform.eulerAngles.x > 180) ? transform.eulerAngles.x - 360 : transform.eulerAngles.x;
 
-        if (verticalInput != 0)
+        if (verticalInput == 0 || (transform.position.y <= levelLowerBoundary && verticalInput >= 0) || (transform.position.y >= levelUpperBoundary && verticalInput <= 0))
+        {
+            currentRotation = (transform.eulerAngles.x > 180) ? transform.eulerAngles.x - 360 : transform.eulerAngles.x;
+
+            transform.rotation = Quaternion.Euler(new Vector3(Mathf.Lerp(currentRotation, 0, tiltSelfcorrectionT), transform.eulerAngles.y, transform.eulerAngles.z));
+            tiltSelfcorrectionT += verticalTiltSelfCorrectionSpeed;
+
+            // Has to be a percentile for lerp to work
+            Mathf.Clamp(tiltSelfcorrectionT, 0, 1);
+        }
+        else
         {
             tiltSelfcorrectionT = 0;     // Reset lerping back to 0
 
@@ -158,14 +172,6 @@ public class BirdCharacterController : MonoBehaviour
             rotation = Mathf.Clamp(rotation + currentRotation, -verticalUpwardsMaxTilt, verticalDiveMaxTilt);
 
             transform.rotation = Quaternion.Euler(new Vector3(rotation, transform.eulerAngles.y, transform.eulerAngles.z));
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(Mathf.Lerp(currentRotation, 0, tiltSelfcorrectionT), transform.eulerAngles.y, transform.eulerAngles.z));
-            tiltSelfcorrectionT += verticalTiltSelfCorrectionSpeed;
-
-            // Has to be a percentile for lerp to work
-            Mathf.Clamp(tiltSelfcorrectionT, 0, 1);
         }
     }
 
