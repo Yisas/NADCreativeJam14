@@ -1466,7 +1466,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4522722564540018}
   - component: {fileID: 95715714136545516}
-  - component: {fileID: 114446450850868898}
   m_Layer: 0
   m_Name: MohoAnim04 (1)
   m_TagString: Untagged
@@ -1504,7 +1503,7 @@ Animator:
   m_GameObject: {fileID: 1885128016745994}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 82169e47ed9a9e840bcbf42edf12e237, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0f450f0740108384f903dbe74abbfdb1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1c26f3ba5a0d2b148b8a7e6d136bea99, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1513,18 +1512,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114446450850868898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885128016745994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4915049707e60048b6a1276d8be6756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1921891606956252
 GameObject:
   m_ObjectHideFlags: 0
