@@ -387,6 +387,8 @@ MonoBehaviour:
     variants:
     - {fileID: 974191107596353731, guid: d4d00e88f5b385540a102a7dcba12d93, type: 3}
     - {fileID: 974191107596353731, guid: 908dfc79e8d4a4c4c984907dffda832a, type: 3}
+    - {fileID: 6612721167656459661, guid: 33b8b0e9e60fc5e4484ffacf5398ea69, type: 3}
+    - {fileID: 2209451722479237838, guid: 1c96f857cd0be7d428cc416b678d52ce, type: 3}
     spawnChance: 0.1
     minAmount: 1
     maxAmount: 1
@@ -397,6 +399,7 @@ MonoBehaviour:
   - type: Cloud
     variants:
     - {fileID: 462040307885984327, guid: b86b21c1a7a49454aba11f1fc4ac3f04, type: 3}
+    - {fileID: 3869057593648256433, guid: 73cb28479dcf40b42ad821cfe0420268, type: 3}
     spawnChance: 0.3
     minAmount: 1
     maxAmount: 1
@@ -812,7 +815,7 @@ PrefabInstance:
     - target: {fileID: 1974508399173397068, guid: d5c313fcb5f915b44a240b9cfc99cc4c,
         type: 3}
       propertyPath: time
-      value: 180
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5c313fcb5f915b44a240b9cfc99cc4c, type: 3}
