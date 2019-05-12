@@ -16,10 +16,10 @@ RenderSettings:
   serializedVersion: 9
   m_Fog: 1
   m_FogColor: {r: 1, g: 1, b: 1, a: 1}
-  m_FogMode: 3
+  m_FogMode: 1
   m_FogDensity: 0.0035
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogStart: 225
+  m_LinearFogEnd: 275
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -314,6 +314,27 @@ MonoBehaviour:
     maxSize: 15
     minHeight: 1
     maxHeight: 10
+  - type: Fern
+    variants:
+    - {fileID: 6663232994591660557, guid: 3455b94a9886fcf4a872ea94f5662577, type: 3}
+    - {fileID: 7071591681423293746, guid: 4e099f601396aa7428da1ac3c0c7c0fc, type: 3}
+    spawnChance: 0.2
+    minAmount: 1
+    maxAmount: 2
+    minSize: 3
+    maxSize: 7
+    minHeight: 0
+    maxHeight: 0
+  - type: Hibiscus
+    variants:
+    - {fileID: 9162448961458456522, guid: 07acb58e5e49e76469c273c169a19c32, type: 3}
+    spawnChance: 0.2
+    minAmount: 1
+    maxAmount: 2
+    minSize: 3
+    maxSize: 5
+    minHeight: 0
+    maxHeight: 0
 --- !u!4 &1247640499
 Transform:
   m_ObjectHideFlags: 0
