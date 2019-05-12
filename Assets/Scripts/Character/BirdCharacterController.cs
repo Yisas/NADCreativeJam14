@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BirdCharacterController : MonoBehaviour
 {
@@ -75,6 +76,9 @@ public class BirdCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene(0);
+
         InputCollection();
         VecticalTilt();
         HorizontalTilt();
