@@ -1663,28 +1663,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6b6134ed953f949b801480da40f5cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glidingSpeed: 50
-  gravityMultiplier: 50
+  glidingSpeed: 5
+  gravityMultiplier: 5
   turnAcceleration: 0.8
   maxTurnSpeed: 1
-  horizontalBankAcceleration: 1
+  horizontalBankAcceleration: 0
   horizontalBankThreshold: 0.2
-  maxHorizontalSpeed: 30
-  horizontalAngularTiltSpeed: 1
-  horizontalMaxTilt: 20
+  maxHorizontalSpeed: 0
+  horizontalAngularTiltSpeed: 1.2
+  horizontalMaxTilt: 40
   horizontalTiltSelfCorrectionSpeed: 0.005
-  verticalAngularTiltSpeed: 1
+  verticalAngularTiltSpeed: 3
   verticalDiveMaxTilt: 40
-  verticalUpwardsMaxTilt: 20
+  verticalUpwardsMaxTilt: 40
   verticalTiltSelfCorrectionSpeed: 0.005
   wingFlapBoost: 0
-  bounceForce: 500
+  bounceForce: 0
   levelUpperBoundary: 140
   levelLowerBoundary: 5
   cloudYLevel: 15
   cloudEnterSound: {fileID: 8300000, guid: 2fa413b1d30d0484e971db7830a0f330, type: 3}
   wingFlapSound: {fileID: 8300000, guid: 5ba2ab618ca6a25418722d23f6679aea, type: 3}
   deathSound: {fileID: 8300000, guid: ff20751ffd233954a97aa8c7a3dde512, type: 3}
+  collisionSound: {fileID: 8300000, guid: 7dd697f5e9e379a48a3d4f33a0916dbf, type: 3}
   deathVFX: {fileID: 100000, guid: dface612412fb6844b79f0751f8b5ee5, type: 3}
   anim: {fileID: 95426562797091848}
   cameraAnimator: {fileID: 1829488437099537483}
@@ -1713,8 +1714,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 2.06
+  m_Volume: 0.5
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0

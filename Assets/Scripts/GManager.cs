@@ -9,13 +9,18 @@ public class GManager : MonoBehaviour
     public Text timerText;
     public float time;
 
+    public AudioClip secondMainTheme;
+
     private float timer;
+    AudioSource audioSource;
+    bool switchedTheme = false;
 
     // Start is called before the first frame update
     void Start()
     {
         transition.GetComponent<Image>().enabled = true;
         transition.CrossFadeInFixedTime("Transparent", 3);
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,5 +32,13 @@ public class GManager : MonoBehaviour
         float minutes = Mathf.Floor(time / 60); 
         float seconds = time % 60;
         timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+
+        if (!audioSource.isPlaying  && !switchedTheme)
+        {
+            switchedTheme = true;
+            audioSource.clip = secondMainTheme;
+            audioSource.Play();
+            audioSource.loop = true;
+        }
     }
 }
