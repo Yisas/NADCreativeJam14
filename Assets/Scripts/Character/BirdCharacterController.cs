@@ -100,7 +100,7 @@ public class BirdCharacterController : MonoBehaviour
         HorizontalTilt();
         UpdateAnimator();
 
-        diving = verticalInput > 0;
+        diving = (verticalInput > 0 && transform.position.y > levelLowerBoundary);
 
         if (transform.position.y < cloudYLevel && lastVerticalPosition >= cloudYLevel)
         {
@@ -224,7 +224,7 @@ public class BirdCharacterController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Bouncy")
         {

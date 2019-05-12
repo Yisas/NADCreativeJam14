@@ -1679,6 +1679,8 @@ MonoBehaviour:
   verticalTiltSelfCorrectionSpeed: 0.005
   wingFlapBoost: 0
   bounceForce: 500
+  levelUpperBoundary: 140
+  levelLowerBoundary: 5
   cloudYLevel: 15
   cloudEnterSound: {fileID: 8300000, guid: 2fa413b1d30d0484e971db7830a0f330, type: 3}
   wingFlapSound: {fileID: 8300000, guid: 5ba2ab618ca6a25418722d23f6679aea, type: 3}
