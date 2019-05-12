@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         transition.GetComponent<Image>().enabled = true;
-        transition.CrossFadeInFixedTime("Transparent", 3);
+        transition.CrossFadeInFixedTime("Transparent", 2);
     }
 
     void Update()
@@ -29,6 +29,6 @@ public class MenuManager : MonoBehaviour
         loading = true;
         transition.CrossFadeInFixedTime("Opaque", 2);
         yield return new WaitForSeconds(2.5f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }

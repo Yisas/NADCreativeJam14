@@ -16,9 +16,9 @@ public class CameraTransition : MonoBehaviour
     IEnumerator Transition()
     {
         transition.CrossFadeInFixedTime("Transparent", 3);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         transition.CrossFadeInFixedTime("Opaque", 3);
-        yield return new WaitForSeconds(3.1f);
+        yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene(3);
     }
 }
