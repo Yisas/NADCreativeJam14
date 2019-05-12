@@ -302,8 +302,8 @@ MonoBehaviour:
     maxAmount: 1
     minSize: 1
     maxSize: 3
-    minHeight: 1
-    maxHeight: 10
+    minHeight: 5
+    maxHeight: 25
   - type: Bird
     variants:
     - {fileID: 1649756006791206, guid: f5d9b980fecf42b4a94d4578a70859c2, type: 3}
