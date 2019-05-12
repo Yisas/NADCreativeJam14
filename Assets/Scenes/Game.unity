@@ -287,7 +287,8 @@ MonoBehaviour:
   - type: Tree
     variants:
     - {fileID: 974191107596353731, guid: d4d00e88f5b385540a102a7dcba12d93, type: 3}
-    spawnChance: 0.15
+    - {fileID: 974191107596353731, guid: 908dfc79e8d4a4c4c984907dffda832a, type: 3}
+    spawnChance: 0.1
     minAmount: 1
     maxAmount: 1
     minSize: 0.25
