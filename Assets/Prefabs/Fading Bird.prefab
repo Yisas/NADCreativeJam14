@@ -861,6 +861,7 @@ GameObject:
   - component: {fileID: 4125858926291686205}
   - component: {fileID: 82576379864817778}
   - component: {fileID: 114952185865966082}
+  - component: {fileID: 8099458659549588038}
   m_Layer: 0
   m_Name: Fading Bird
   m_TagString: Untagged
@@ -924,8 +925,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 2.06
+  m_Volume: 0.5
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -933,9 +934,9 @@ AudioSource:
   Priority: 27
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 150
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -968,7 +969,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1020,6 +1021,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ea1cad241473a448d798282bba7822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeSound: {fileID: 0}
+--- !u!114 &8099458659549588038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649756006791206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3081e759c3601bc48a827c3513f8ce93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chirpTimeMin: 3
+  chirpTimeMax: 10
+  chirpSounds:
+  - {fileID: 8300000, guid: 1e20c4954846ce240bf8f02dc67278ad, type: 3}
+  - {fileID: 8300000, guid: bbf553b9bd2294d4fbb9a7b9efc2a25a, type: 3}
 --- !u!1 &1664025816728684
 GameObject:
   m_ObjectHideFlags: 0

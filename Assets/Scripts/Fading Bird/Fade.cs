@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Fade : MonoBehaviour
 {
+    [SerializeField]
+    AudioClip fadeSound;
+
 	static float fadeDistance = 25;
 	static float fadingSpeed = 0.4f;
 
@@ -25,8 +28,11 @@ public class Fade : MonoBehaviour
 		if (fading || player == null)
 			return;
 		var distance = Vector3.Distance(transform.position, player.position);
-		if (!fading && distance <= fadeDistance)
-			StartCoroutine(FadeCoroutine());
+        if (!fading && distance <= fadeDistance)
+        {
+            StartCoroutine(FadeCoroutine());
+            GetComponent<FadingBird>().enabled = false;
+        }
 	}
 
 	IEnumerator FadeCoroutine()
