@@ -16,6 +16,8 @@ public class BirdCharacterController : MonoBehaviour
     [SerializeField]
     float horizontalBankAcceleration;
     [SerializeField]
+    float horizontalBankThreshold;          // Input amount before the player glides horizontally
+    [SerializeField]
     float maxHorizontalSpeed;
     [SerializeField]
     float horizontalAngularTiltSpeed;
@@ -182,17 +184,21 @@ public class BirdCharacterController : MonoBehaviour
             }
             transform.RotateAround(transform.position, Vector3.up, turnAngleAmount);
 
-            // Add horizontal banking acceleration
-            float horizontalBankAmount = 0;
-            if (Mathf.Abs(horizontalInput * horizontalBankAcceleration * (Time.time - turnStartTime)) < maxHorizontalSpeed)
+
+            if (horizontalInput > horizontalBankThreshold)
             {
-                horizontalBankAmount = horizontalInput * horizontalBankAcceleration * (Time.time - turnStartTime);
+                // Add horizontal banking acceleration
+                float horizontalBankAmount = 0;
+                if (Mathf.Abs(horizontalInput * horizontalBankAcceleration * (Time.time - turnStartTime)) < maxHorizontalSpeed)
+                {
+                    horizontalBankAmount = horizontalInput * horizontalBankAcceleration * (Time.time - turnStartTime);
+                }
+                else
+                {
+                    horizontalBankAmount = maxHorizontalSpeed * Mathf.Sign(horizontalInput);
+                }
+                rb.velocity = rb.velocity + (transform.right * maxHorizontalSpeed);
             }
-            else
-            {
-                horizontalBankAmount = maxHorizontalSpeed * Mathf.Sign(horizontalInput);
-            }
-            rb.velocity = rb.velocity + (transform.right * maxHorizontalSpeed);
         }
     }
 
@@ -227,6 +233,8 @@ public class BirdCharacterController : MonoBehaviour
     void UpdateAnimator()
     {
         anim.SetBool("diving", diving);
-        anim.SetBool("gliding", Mathf.Abs(horizontalInput) > 0.2f);
+        anim.SetBool("bankRight", horizontalInput > 0.2f);
+        anim.SetBool("bankLeft", horizontalInput < -0.2f);
+        anim.SetBool("flapping", verticalInput < -0.2f);
     }
 }
