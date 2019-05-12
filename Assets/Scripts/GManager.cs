@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class GManager : MonoBehaviour
     public float time;
 
     public AudioClip secondMainTheme;
+
+    bool loading = false;
 
     private float timer;
     AudioSource audioSource;
@@ -31,7 +34,13 @@ public class GManager : MonoBehaviour
 
         float minutes = Mathf.Floor(time / 60); 
         float seconds = time % 60;
-        timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+        timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+
+        if (time == 0 && !loading)
+        {
+            StartCoroutine(Transition());
+            return;
+        }
 
         if (!audioSource.isPlaying  && !switchedTheme)
         {
@@ -40,5 +49,13 @@ public class GManager : MonoBehaviour
             audioSource.Play();
             audioSource.loop = true;
         }
+    }
+
+    IEnumerator Transition()
+    {
+        loading = true;
+        transition.CrossFadeInFixedTime("Opaque", 3);
+        yield return new WaitForSeconds(3.5f);
+        SceneManager.LoadScene(4);
     }
 }
