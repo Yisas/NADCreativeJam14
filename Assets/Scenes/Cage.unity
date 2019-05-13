@@ -177,6 +177,7 @@ MonoBehaviour:
   cameraAnimator: {fileID: 0}
   mainAudioSource: {fileID: 0}
   divingAudioSource: {fileID: 0}
+  divingFadeOutInterval: 0
 --- !u!1001 &737572193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1762890560123530, guid: 328df2f5540a5534da9d42c7b4c90756, type: 3}
       propertyPath: m_Name
-      value: CloudEffect (1)
+      value: CloudEffect 2
       objectReference: {fileID: 0}
     - target: {fileID: 4163986858630294, guid: 328df2f5540a5534da9d42c7b4c90756, type: 3}
       propertyPath: m_LocalPosition.x
@@ -274,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4061918814377258, guid: 09f9c3bb2c5d67b45a050362921136f1, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4061918814377258, guid: 09f9c3bb2c5d67b45a050362921136f1, type: 3}
       propertyPath: m_LocalScale.x
@@ -301,6 +302,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1762890560123530, guid: 328df2f5540a5534da9d42c7b4c90756, type: 3}
+      propertyPath: m_Name
+      value: CloudEffect 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4163986858630294, guid: 328df2f5540a5534da9d42c7b4c90756, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -395,7 +400,7 @@ PrefabInstance:
     - target: {fileID: 6956903918957261203, guid: 2334be16fb1ac8a45949b0558da7619e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6956903918957261203, guid: 2334be16fb1ac8a45949b0558da7619e,
         type: 3}
@@ -1572,7 +1577,7 @@ Transform:
   - {fileID: 4647282165995365}
   - {fileID: 982276362535654124}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4022917942136407
 Transform:

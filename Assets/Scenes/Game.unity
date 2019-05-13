@@ -450,7 +450,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1780269538 stripped
 Animator:
@@ -577,7 +577,7 @@ PrefabInstance:
     - target: {fileID: 6956903918957261203, guid: 2334be16fb1ac8a45949b0558da7619e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6956903918957261203, guid: 2334be16fb1ac8a45949b0558da7619e,
         type: 3}
@@ -643,6 +643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956903918957261202, guid: 2334be16fb1ac8a45949b0558da7619e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2334be16fb1ac8a45949b0558da7619e, type: 3}
